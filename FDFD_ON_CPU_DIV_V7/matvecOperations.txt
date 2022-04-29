@@ -1,0 +1,35 @@
+Perfectly Conducting Sphere
+
+
+Non-Divergence MATVEC Operations: 1638
+
+Tolerance: 0.01
+
+Eigenvalue: 1.0
+
+
+Divergence MATVEC Operations:1345
+
+Tolerance: 0.01
+
+Eigenvalue: 0.91895
+
+-----------------------------------------
+
+Dielectric Sphere
+
+
+Non-Divergence MATVEC Operations: 1284
+
+Tolerance: 0.1
+
+Eigenvalue: 1.0
+
+
+Divergence MATVEC Operations: 1389
+
+Tolerance: 0.1
+
+Eigenvalue: 1.011
+
+
