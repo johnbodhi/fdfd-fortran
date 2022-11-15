@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VisualStudioProject ProjectType="typeStaticLibrary" ProjectCreator="Intel Fortran" Keyword="Static Library" Version="9.10" ProjectIdGuid="{EB7D8D86-0E75-495E-910D-6C71CB52B5E4}">
+	<Platforms>
+		<Platform Name="Win32"/></Platforms>
+	<Configurations>
+		<Configuration Name="Debug|Win32" ConfigurationType="typeStaticLibrary">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true" DebugInformationFormat="debugEnabled" Optimization="optimizeDisabled" Interfaces="true" WarnInterfaces="true" Traceback="true" BoundsCheck="true" RuntimeLibrary="rtMultiThreadedDebug"/>
+				<Tool Name="VFLibrarianTool"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/></Configuration>
+		<Configuration Name="Release|Win32" ConfigurationType="typeStaticLibrary">
+				<Tool Name="VFFortranCompilerTool" SuppressStartupBanner="true"/>
+				<Tool Name="VFLibrarianTool"/>
+				<Tool Name="VFResourceCompilerTool"/>
+				<Tool Name="VFMidlTool" SuppressStartupBanner="true"/>
+				<Tool Name="VFCustomBuildTool"/>
+				<Tool Name="VFPreLinkEventTool"/>
+				<Tool Name="VFPreBuildEventTool"/>
+				<Tool Name="VFPostBuildEventTool"/></Configuration></Configurations>
+	<Files>
+		<Filter Name="Header Files" Filter="fi;fd"/>
+		<Filter Name="Resource Files" Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"/>
+		<Filter Name="Source Files" Filter="f90;for;f;fpp;ftn;def;odl;idl">
+		<File RelativePath="..\dasum.f"/>
+		<File RelativePath="..\dcabs1.f"/>
+		<File RelativePath="..\dzasum.f"/>
+		<File RelativePath="..\dznrm2.f"/>
+		<File RelativePath="..\icamax.f"/>
+		<File RelativePath="..\idamax.f"/>
+		<File RelativePath="..\isamax.f"/>
+		<File RelativePath="..\izamax.f"/>
+		<File RelativePath="..\lsame.f"/>
+		<File RelativePath="..\sasum.f"/>
+		<File RelativePath="..\xerbla.f"/>
+		<File RelativePath="..\zaxpy.f"/>
+		<File RelativePath="..\zcopy.f"/>
+		<File RelativePath="..\zdotc.f"/>
+		<File RelativePath="..\zdotu.f"/>
+		<File RelativePath="..\zdrot.f"/>
+		<File RelativePath="..\zdscal.f"/>
+		<File RelativePath="..\zgbmv.f"/>
+		<File RelativePath="..\zgemm.f"/>
+		<File RelativePath="..\zgemv.f"/>
+		<File RelativePath="..\zgerc.f"/>
+		<File RelativePath="..\zgeru.f"/>
+		<File RelativePath="..\zhbmv.f"/>
+		<File RelativePath="..\zhemm.f"/>
+		<File RelativePath="..\zhemv.f"/>
+		<File RelativePath="..\zher.f"/>
+		<File RelativePath="..\zher2.f"/>
+		<File RelativePath="..\zher2k.f"/>
+		<File RelativePath="..\zherk.f"/>
+		<File RelativePath="..\zhpmv.f"/>
+		<File RelativePath="..\zhpr.f"/>
+		<File RelativePath="..\zhpr2.f"/>
+		<File RelativePath="..\zrotg.f"/>
+		<File RelativePath="..\zscal.f"/>
+		<File RelativePath="..\zswap.f"/>
+		<File RelativePath="..\zsymm.f"/>
+		<File RelativePath="..\zsyr2k.f"/>
+		<File RelativePath="..\zsyrk.f"/>
+		<File RelativePath="..\ztbmv.f"/>
+		<File RelativePath="..\ztbsv.f"/>
+		<File RelativePath="..\ztpmv.f"/>
+		<File RelativePath="..\ztpsv.f"/>
+		<File RelativePath="..\ztrmm.f"/>
+		<File RelativePath="..\ztrmv.f"/>
+		<File RelativePath="..\ztrsm.f"/>
+		<File RelativePath="..\ztrsv.f"/></Filter></Files>
+	<Globals/></VisualStudioProject>

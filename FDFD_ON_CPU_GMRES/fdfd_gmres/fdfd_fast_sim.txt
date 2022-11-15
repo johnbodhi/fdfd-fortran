@@ -1,0 +1,2 @@
+ Total simulation time is =   1733.58440303802       seconds
+ Total simulation time is =   28.8930733839671       minutes

@@ -1,0 +1,3 @@
+ nx =          32 , ny=          32 , nz=          44
+ Total simulation time is =   1.00373411178589       seconds
+ Total simulation time is =  1.672890186309815E-002  minutes

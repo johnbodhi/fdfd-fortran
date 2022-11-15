@@ -1,0 +1,10 @@
+fdfd.exe sphere_1.txt 
+fdfd.exe sphere_2.txt 
+fdfd.exe sphere_3.txt 
+fdfd.exe sphere_4.txt 
+fdfd.exe sphere_5.txt 
+fdfd.exe sphere_6.txt 
+fdfd.exe sphere_7.txt 
+fdfd.exe sphere_8.txt 
+fdfd.exe sphere_9.txt 
+fdfd.exe sphere_10.txt

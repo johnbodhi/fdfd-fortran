@@ -1,0 +1,87 @@
+
+
+
+NOT DONE YET: 
+
+Subject: [ITSOL]  bug report
+From: Dominique Belhachemi <domibel@cs.tu-berlin.de>
+To: saad@cs.umn.edu
+Content-Type: text/plain
+Date: Sat, 06 Sep 2008 23:01:00 +0200
+Message-Id: <1220734860.4915.6.camel@localhost>
+Mime-Version: 1.0
+X-Mailer: Evolution 2.6.3 
+Content-Transfer-Encoding: 7bit
+X-Virus-Scanned: amavisd-new at cs.tu-berlin.de (including SpamAssassin)
+Status: R
+X-Status: A
+X-Keywords:                 
+
+Yousef,
+
+I tried to compile ITSOL_1 on my machine. It failed because of a typo
+in 
+      LIB/systimer.c
+
+Here comes the solution :
+---------------------------------
+ #include <sys/time.h>
+
+ #ifndef CLK_TCK
+-#define ClK_TCK 100
++#define CLK_TCK 100
+ #endif
+
+ #ifndef CLOCKS_PER_SEC
+---------------------------------
+
+Thanks for working on ITSOL.
+
+Kind regards
+ Dominique
+
+=======================================================================
+
+
+NOT DONE YET:
+
+
+
+Here are some minor hints.
+
+1)
+Some lines in LIB/tools.f are too long.
+For example: LIB/tools.f:826
+
+2)
+Are you interested in warnings?
+
+2a)
+LIB/tools.f:500.42:
+
+      subroutine rnrms   (nrow, nrm, a, ja, ia, diag)
+                                         1
+Warning: Unused dummy argument 'ja' at (1)
+
+
+2b)
+Warning: Nonconforming tab character in column 1 of line 826
+Warning: Nonconforming tab character in column 3 of line 883
+Warning: Nonconforming tab character in column 3 of line 885
+Warning: Nonconforming tab character in column 3 of line 887
+Warning: Nonconforming tab character in column 3 of line 888
+Warning: Nonconforming tab character in column 3 of line 890
+Warning: Nonconforming tab character in column 3 of line 891
+Warning: Nonconforming tab character in column 3 of line 892
+Warning: Nonconforming tab character in column 3 of line 893
+Warning: Nonconforming tab character in column 3 of line 894
+and so on....
+
+3)
+Everything else looks very good ;-)
+
+Kind regards
+Dominique
+
+
+=======================================================================
