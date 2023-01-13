@@ -13,7 +13,7 @@ cell_size_in_y_direction_dy
 cell_size_in_z_direction_dz
 0.005
 eigenvalue
-1.0
+1.011
 number_of_pml_layers
 8
 result_filename
@@ -23,7 +23,7 @@ results_sphere.data
 number_of_iterations
 200000
 tolerance
-0.01
+0.1
 printstep
 10
 geometry
@@ -37,7 +37,7 @@ center_y
 center_z
 0.15
 sphere_eps_r_real
-4000000000
+4
 sphere_eps_r_imag
 0
 sphere_mu_r_real

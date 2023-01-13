@@ -66,6 +66,7 @@ subroutine set_geometry
 404   FORMAT ('Invalid file : ', A);
 
 end subroutine set_geometry
+
 !==============================================================================
 
 module someFunctions
@@ -278,11 +279,12 @@ module someFunctions
 		assignParameters = 1;
 		end function assignParameters
 
-end module someFunctions
+    end module someFunctions
 
 !==============================================================================
 
 !==============================================================================
+
 subroutine setPMLboundaries
 	use global
 	implicit none
@@ -765,9 +767,8 @@ subroutine createResultFile
 
 	if (result_filename.eq."no_results_file") then
 		return;
-	endif
-
-
+    endif
+    
 	open (1, FILE = result_filename);
 	write(1,*) 'Nx'
 	write(1,*)  Nx
@@ -946,93 +947,93 @@ subroutine calculatefarfields
 	Ntheta = (0.0,0.0); Ltheta = (0.0,0.0); Nphi = (0.0,0.0); Lphi = (0.0,0.0); rpr = (0.0,0.0);
 			! for +ax direction
 			do nj =lj,uj-1,1
-			do nk =lk,uk-1,1
-			rpr = (ui - ci)*dx*sin(theta)*cos(phi) &
-				  &     + (nj-cj+0.5)*dy*sin(theta)*sin(phi) &
-				  &     + (nk-ck+0.5)*dz*cos(theta);
-			Ntheta = Ntheta + dy*dz*(cjyxp(1,nj-lj+1,nk-lk+1)*cos(theta)*sin(phi) &
-					 &  - cjzxp(1,nj-lj+1,nk-lk+1)*sin(theta))*exp(j*k*rpr);
-			Ltheta = Ltheta + dy*dz*(cmyxp(1,nj-lj+1,nk-lk+1)*cos(theta)*sin(phi) &
-					 &  - cmzxp(1,nj-lj+1,nk-lk+1)*sin(theta))*exp(j*k*rpr);
-			Nphi = Nphi + dy*dz*(cjyxp(1,nj-lj+1,nk-lk+1)*cos(phi))*exp(j*k*rpr);
-			Lphi = Lphi + dy*dz*(cmyxp(1,nj-lj+1,nk-lk+1)*cos(phi))*exp(j*k*rpr);
+				do nk =lk,uk-1,1
+					rpr = (ui - ci)*dx*sin(theta)*cos(phi) &
+						  &     + (nj-cj+0.5)*dy*sin(theta)*sin(phi) &
+						  &     + (nk-ck+0.5)*dz*cos(theta);
+					Ntheta = Ntheta + dy*dz*(cjyxp(1,nj-lj+1,nk-lk+1)*cos(theta)*sin(phi) &
+							 &  - cjzxp(1,nj-lj+1,nk-lk+1)*sin(theta))*exp(j*k*rpr);
+					Ltheta = Ltheta + dy*dz*(cmyxp(1,nj-lj+1,nk-lk+1)*cos(theta)*sin(phi) &
+							 &  - cmzxp(1,nj-lj+1,nk-lk+1)*sin(theta))*exp(j*k*rpr);
+					Nphi = Nphi + dy*dz*(cjyxp(1,nj-lj+1,nk-lk+1)*cos(phi))*exp(j*k*rpr);
+					Lphi = Lphi + dy*dz*(cmyxp(1,nj-lj+1,nk-lk+1)*cos(phi))*exp(j*k*rpr);
 				end do
 			end do
  
 
 			! for -ax direction
 			do nj =lj,uj-1,1
-			do nk =lk,uk-1,1
-			rpr = (li - ci)*dx*sin(theta)*cos(phi) &
-				   &     + (nj-cj+0.5)*dy*sin(theta)*sin(phi) &
-				   &     + (nk-ck+0.5)*dz*cos(theta);
-			Ntheta = Ntheta + dy*dz*(cjyxm(1,nj-lj+1,nk-lk+1)*cos(theta)*sin(phi) &
-					 &	 - cjzxm(1,nj-lj+1,nk-lk+1)*sin(theta))*exp(j*k*rpr);
-			Ltheta = Ltheta + dy*dz*(cmyxm(1,nj-lj+1,nk-lk+1)*cos(theta)*sin(phi) &
-					 &   - cmzxm(1,nj-lj+1,nk-lk+1)*sin(theta))*exp(j*k*rpr);
-			Nphi = Nphi + dy*dz*(cjyxm(1,nj-lj+1,nk-lk+1)*cos(phi))*exp(j*k*rpr);
-			Lphi = Lphi + dy*dz*(cmyxm(1,nj-lj+1,nk-lk+1)*cos(phi))*exp(j*k*rpr);
+				do nk =lk,uk-1,1
+					rpr = (li - ci)*dx*sin(theta)*cos(phi) &
+						   &     + (nj-cj+0.5)*dy*sin(theta)*sin(phi) &
+						   &     + (nk-ck+0.5)*dz*cos(theta);
+					Ntheta = Ntheta + dy*dz*(cjyxm(1,nj-lj+1,nk-lk+1)*cos(theta)*sin(phi) &
+							 &	 - cjzxm(1,nj-lj+1,nk-lk+1)*sin(theta))*exp(j*k*rpr);
+					Ltheta = Ltheta + dy*dz*(cmyxm(1,nj-lj+1,nk-lk+1)*cos(theta)*sin(phi) &
+							 &   - cmzxm(1,nj-lj+1,nk-lk+1)*sin(theta))*exp(j*k*rpr);
+					Nphi = Nphi + dy*dz*(cjyxm(1,nj-lj+1,nk-lk+1)*cos(phi))*exp(j*k*rpr);
+					Lphi = Lphi + dy*dz*(cmyxm(1,nj-lj+1,nk-lk+1)*cos(phi))*exp(j*k*rpr);
 				end do
 			end do
 
 			! for +ay direction
 			do ni =li,ui-1,1
-			do nk =lk,uk-1,1
-			rpr = (ni - ci + 0.5)*dx*sin(theta)*cos(phi) &
-				  &      + (uj-cj)*dy*sin(theta)*sin(phi) &
-				  &      + (nk-ck+0.5)*dz*cos(theta);
-			Ntheta = Ntheta + dx*dz*(cjxyp(ni-li+1,1,nk-lk+1)*cos(theta)*cos(phi) &
-					&    - cjzyp(ni-li+1,1,nk-lk+1)*sin(theta))*exp(j*k*rpr);
-			Ltheta = Ltheta + dx*dz*(cmxyp(ni-li+1,1,nk-lk+1)*cos(theta)*cos(phi) &
-					&    - cmzyp(ni-li+1,1,nk-lk+1)*sin(theta))*exp(j*k*rpr);
-			Nphi = Nphi + dx*dz*(-cjxyp(ni-li+1,1,nk-lk+1)*sin(phi))*exp(j*k*rpr);
-			Lphi = Lphi + dx*dz*(-cmxyp(ni-li+1,1,nk-lk+1)*sin(phi))*exp(j*k*rpr);
+				do nk =lk,uk-1,1
+					rpr = (ni - ci + 0.5)*dx*sin(theta)*cos(phi) &
+						  &      + (uj-cj)*dy*sin(theta)*sin(phi) &
+						  &      + (nk-ck+0.5)*dz*cos(theta);
+					Ntheta = Ntheta + dx*dz*(cjxyp(ni-li+1,1,nk-lk+1)*cos(theta)*cos(phi) &
+							&    - cjzyp(ni-li+1,1,nk-lk+1)*sin(theta))*exp(j*k*rpr);
+					Ltheta = Ltheta + dx*dz*(cmxyp(ni-li+1,1,nk-lk+1)*cos(theta)*cos(phi) &
+							&    - cmzyp(ni-li+1,1,nk-lk+1)*sin(theta))*exp(j*k*rpr);
+					Nphi = Nphi + dx*dz*(-cjxyp(ni-li+1,1,nk-lk+1)*sin(phi))*exp(j*k*rpr);
+					Lphi = Lphi + dx*dz*(-cmxyp(ni-li+1,1,nk-lk+1)*sin(phi))*exp(j*k*rpr);
 				end do
 			end do
 
 			! for -ay direction
 			do ni =li,ui-1,1
-			do nk =lk,uk-1,1
-			rpr = (ni - ci + 0.5)*dx*sin(theta)*cos(phi) &
-				  &      + (lj-cj)*dy*sin(theta)*sin(phi) &
-				  &      + (nk-ck+0.5)*dz*cos(theta);
-			Ntheta = Ntheta + dx*dz*(cjxym(ni-li+1,1,nk-lk+1)*cos(theta)*cos(phi) &
-				  &	     - cjzym(ni-li+1,1,nk-lk+1)*sin(theta))*exp(j*k*rpr);
-			Ltheta = Ltheta + dx*dz*(cmxym(ni-li+1,1,nk-lk+1)*cos(theta)*cos(phi) &
-				  &      - cmzym(ni-li+1,1,nk-lk+1)*sin(theta))*exp(j*k*rpr);
-			Nphi = Nphi + dx*dz*(-cjxym(ni-li+1,1,nk-lk+1)*sin(phi))*exp(j*k*rpr);
-			Lphi = Lphi + dx*dz*(-cmxym(ni-li+1,1,nk-lk+1)*sin(phi))*exp(j*k*rpr);
+				do nk =lk,uk-1,1
+					rpr = (ni - ci + 0.5)*dx*sin(theta)*cos(phi) &
+						  &      + (lj-cj)*dy*sin(theta)*sin(phi) &
+						  &      + (nk-ck+0.5)*dz*cos(theta);
+					Ntheta = Ntheta + dx*dz*(cjxym(ni-li+1,1,nk-lk+1)*cos(theta)*cos(phi) &
+						  &	     - cjzym(ni-li+1,1,nk-lk+1)*sin(theta))*exp(j*k*rpr);
+					Ltheta = Ltheta + dx*dz*(cmxym(ni-li+1,1,nk-lk+1)*cos(theta)*cos(phi) &
+						  &      - cmzym(ni-li+1,1,nk-lk+1)*sin(theta))*exp(j*k*rpr);
+					Nphi = Nphi + dx*dz*(-cjxym(ni-li+1,1,nk-lk+1)*sin(phi))*exp(j*k*rpr);
+					Lphi = Lphi + dx*dz*(-cmxym(ni-li+1,1,nk-lk+1)*sin(phi))*exp(j*k*rpr);
 				end do
 			end do
 
 
 			! for +az direction
 			do ni =li,ui-1,1
-			do nj =lj,uj-1,1
-			rpr = (ni-ci+0.5)*dx*sin(theta)*cos(phi) &
-				  &      + (nj - cj + 0.5)*dy*sin(theta)*sin(phi) &
-				  &      + (uk-ck)*dz*cos(theta);
-			Ntheta = Ntheta + dx*dy*(cjxzp(ni-li+1,nj-lj+1,1)*cos(theta)*cos(phi) &
-				  &      + cjyzp(ni-li+1,nj-lj+1,1)*cos(theta)*sin(phi))*exp(j*k*rpr);
-			Ltheta = Ltheta + dx*dy*(cmxzp(ni-li+1,nj-lj+1,1)*cos(theta)*cos(phi) &
-				  &      + cmyzp(ni-li+1,nj-lj+1,1)*cos(theta)*sin(phi))*exp(j*k*rpr);
-			Nphi = Nphi + dx*dy*(-cjxzp(ni-li+1,nj-lj+1,1)*sin(phi)+cjyzp(ni-li+1,nj-lj+1,1)*cos(phi))*exp(j*k*rpr);
-			Lphi = Lphi + dx*dy*(-cmxzp(ni-li+1,nj-lj+1,1)*sin(phi)+cmyzp(ni-li+1,nj-lj+1,1)*cos(phi))*exp(j*k*rpr);
+				do nj =lj,uj-1,1
+					rpr = (ni-ci+0.5)*dx*sin(theta)*cos(phi) &
+						  &      + (nj - cj + 0.5)*dy*sin(theta)*sin(phi) &
+						  &      + (uk-ck)*dz*cos(theta);
+					Ntheta = Ntheta + dx*dy*(cjxzp(ni-li+1,nj-lj+1,1)*cos(theta)*cos(phi) &
+						  &      + cjyzp(ni-li+1,nj-lj+1,1)*cos(theta)*sin(phi))*exp(j*k*rpr);
+					Ltheta = Ltheta + dx*dy*(cmxzp(ni-li+1,nj-lj+1,1)*cos(theta)*cos(phi) &
+						  &      + cmyzp(ni-li+1,nj-lj+1,1)*cos(theta)*sin(phi))*exp(j*k*rpr);
+					Nphi = Nphi + dx*dy*(-cjxzp(ni-li+1,nj-lj+1,1)*sin(phi)+cjyzp(ni-li+1,nj-lj+1,1)*cos(phi))*exp(j*k*rpr);
+					Lphi = Lphi + dx*dy*(-cmxzp(ni-li+1,nj-lj+1,1)*sin(phi)+cmyzp(ni-li+1,nj-lj+1,1)*cos(phi))*exp(j*k*rpr);
 				end do
 			end do
 
 			! for -az direction
 			do ni =li,ui-1,1
-			do nj =lj,uj-1,1
-			rpr = (ni-ci+0.5)*dx*sin(theta)*cos(phi) &
-				   &     + (nj - cj + 0.5)*dy*sin(theta)*sin(phi) &
-				   &     + (lk-ck)*dz*cos(theta);
-			Ntheta = Ntheta + dx*dy*(cjxzm(ni-li+1,nj-lj+1,1)*cos(theta)*cos(phi) &
-				   &    + cjyzm(ni-li+1,nj-lj+1,1)*cos(theta)*sin(phi))*exp(j*k*rpr);
-			Ltheta = Ltheta + dx*dy*(cmxzm(ni-li+1,nj-lj+1,1)*cos(theta)*cos(phi) &
-				   &    + cmyzm(ni-li+1,nj-lj+1,1)*cos(theta)*sin(phi))*exp(j*k*rpr);
-			Nphi = Nphi + dx*dy*(-cjxzm(ni-li+1,nj-lj+1,1)*sin(phi)+cjyzm(ni-li+1,nj-lj+1,1)*cos(phi))*exp(j*k*rpr);
-			Lphi = Lphi + dx*dy*(-cmxzm(ni-li+1,nj-lj+1,1)*sin(phi)+cmyzm(ni-li+1,nj-lj+1,1)*cos(phi))*exp(j*k*rpr);
+				do nj =lj,uj-1,1
+					rpr = (ni-ci+0.5)*dx*sin(theta)*cos(phi) &
+						   &     + (nj - cj + 0.5)*dy*sin(theta)*sin(phi) &
+						   &     + (lk-ck)*dz*cos(theta);
+					Ntheta = Ntheta + dx*dy*(cjxzm(ni-li+1,nj-lj+1,1)*cos(theta)*cos(phi) &
+						   &    + cjyzm(ni-li+1,nj-lj+1,1)*cos(theta)*sin(phi))*exp(j*k*rpr);
+					Ltheta = Ltheta + dx*dy*(cmxzm(ni-li+1,nj-lj+1,1)*cos(theta)*cos(phi) &
+						   &    + cmyzm(ni-li+1,nj-lj+1,1)*cos(theta)*sin(phi))*exp(j*k*rpr);
+					Nphi = Nphi + dx*dy*(-cjxzm(ni-li+1,nj-lj+1,1)*sin(phi)+cjyzm(ni-li+1,nj-lj+1,1)*cos(phi))*exp(j*k*rpr);
+					Lphi = Lphi + dx*dy*(-cmxzm(ni-li+1,nj-lj+1,1)*sin(phi)+cmyzm(ni-li+1,nj-lj+1,1)*cos(phi))*exp(j*k*rpr);
 				end do
 			end do
 
@@ -1064,8 +1065,6 @@ subroutine saveFarFieldsToFile
 	write(1,'("legend(''FDFD'');")') 
 	write(1,'("xlabel(''\theta [degrees]'',''FontSize'',12);")') 
 	write(1,'("ylabel(''\sigma_{\theta\theta}'',''FontSize'',14);")') 
-
-
 
 	close(1);
 
@@ -1168,4 +1167,3 @@ program fdfd_3d
 
     pause
 end program fdfd_3d
-
