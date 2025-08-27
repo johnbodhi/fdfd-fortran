@@ -608,6 +608,10 @@ subroutine createObjects
 	integer r;
 	integer mi,mj,mk,ind;
 	real coord_x, coord_y, coord_z, dist;
+    
+!create cones
+    
+    
 
 
 ! create cubes
